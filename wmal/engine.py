@@ -440,7 +440,7 @@ class Engine:
         searchep = str(episode).zfill(2)
         
         # Do the file search
-        regex = r"(%s)\D*%s\D.*(mkv|mp4|avi|ogm)(?!.part)" % (searchfile, searchep)
+        regex = r"(%s)\D*%s\D.*(mkv|mp4|avi|ogm)(?!.part$)" % (searchfile, searchep)
         return utils.regex_find_file(regex, self.config['searchdir'])
     
     def get_new_episodes(self, showlist):
@@ -653,7 +653,7 @@ class Engine:
         """
         lsof = subprocess.Popen(['lsof', '-n', '-c', ''.join(['/', players, '/']), '-Fn'], stdout=subprocess.PIPE)
         output = lsof.communicate()[0]
-        fileregex = re.compile("n(.*(\.mkv|\.mp4|\.avi))")
+        fileregex = re.compile("n(.*(\.mkv|\.mp4|\.avi|\.ogm))")
         
         for line in output.splitlines():
             match = fileregex.match(line)

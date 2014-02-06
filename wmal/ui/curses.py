@@ -79,7 +79,7 @@ class wMAL_urwid(object):
         keymap = utils.parse_config(utils.get_root_filename('keymap.json'), utils.keymap_defaults)
         self.keymapping = self.map_key_to_func(keymap)
         
-        sys.stdout.write("\x1b]0;wMAL-curses "+utils.VERSION+"\x07");
+        sys.stdout.write("\x1b]0;wMAL-curses (moggers' fork) "+utils.VERSION+"\x07");
         self.header_title = urwid.Text('wMAL-curses ' + utils.VERSION)
         self.header_api = urwid.Text('API:')
         self.header_filter = urwid.Text('Filter:watching')
