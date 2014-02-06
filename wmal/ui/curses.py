@@ -80,7 +80,7 @@ class wMAL_urwid(object):
         self.keymapping = self.map_key_to_func(keymap)
         
         sys.stdout.write("\x1b]0;wMAL-curses (moggers' fork) "+utils.VERSION+"\x07");
-        self.header_title = urwid.Text('wMAL-curses ' + utils.VERSION)
+        self.header_title = urwid.Text('wMAL-curses (moggers\' fork)' + utils.VERSION)
         self.header_api = urwid.Text('API:')
         self.header_filter = urwid.Text('Filter:watching')
         self.header_sort = urwid.Text('Sort:title')
