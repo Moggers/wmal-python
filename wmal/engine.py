@@ -440,7 +440,7 @@ class Engine:
         searchep = str(episode).zfill(2)
         
         # Do the file search
-        regex = r"(%s)\D*%s\D.*(mkv|mp4|avi)" % (searchfile, searchep)
+        regex = r"(%s)\D*%s\D.*(mkv|mp4|avi|ogm)" % (searchfile, searchep)
         return utils.regex_find_file(regex, self.config['searchdir'])
     
     def get_new_episodes(self, showlist):
@@ -450,8 +450,15 @@ class Engine:
         for i, show in enumerate(showlist):
             self.msg.info(self.name, "Searching %d/%d..." % (i+1, total))
 
+            if self.data_handler.altname_get(show['id']):
+                titles = [ self.data_handler.altname_get(show['id']) ]
+            else:
+                titles = [show['title']]
+                titles.extend(show['aliases'])
+            
+            """ Replaced with the previous six lines to address failure to recognize aliases
             titles = [show['title']]
-            titles.extend(show['aliases'])
+            titles.extend(show['aliases'])"""
             
             filename = self._search_video(titles, show['my_progress']+1)
             if filename:
