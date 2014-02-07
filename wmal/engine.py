@@ -28,6 +28,8 @@ import messenger
 import data
 import utils
 
+import transmissionrpc
+
 class Engine:
     """
     Main engine class
@@ -676,3 +678,6 @@ class Engine:
         """Asks the data handler for the current queue."""
         return self.data_handler.queue
     
+    def get_torrent( show )
+        """Retrieve transmission torrent of show"""
+        return null
