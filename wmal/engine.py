@@ -677,7 +677,3 @@ class Engine:
     def get_queue(self):
         """Asks the data handler for the current queue."""
         return self.data_handler.queue
-    
-    def get_torrent( show )
-        """Retrieve transmission torrent of show"""
-        return null
